@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tareas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #contador {
+      font-weight: bold;
+      color: darkblue;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #f0f0f0;
+      margin: 5px auto;
+      padding: 10px;
+      width: 200px;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Título principal -->
+  <h1>Lista de Tareas</h1>
+
+  <!-- Contador de tareas -->
+  <p>Total de tareas: <span id="contador">0</span></p>
+
+  <!-- Lista donde se agregarán las tareas -->
+  <ul id="lista-tareas"></ul>
+
+  <!-- Botón que al hacer clic ejecuta la función agregarTarea() -->
+  <button onclick="agregarTarea()">Agregar Tarea</button>
+
+  <script>
+    // Variable global para contar cuántas tareas se han agregado
+    let contador = 0;
+
+    // Función que agrega una nueva tarea a la lista
+    function agregarTarea() {
+      // Incrementa el contador en 1
+      contador++;
+
+      // Obtiene el contenedor de la lista (<ul>)
+      let lista = document.getElementById("lista-tareas");
+
+      // Crea un nuevo elemento de lista (<li>)
+      let nuevaTarea = document.createElement("li");
+
+      // Asigna texto a la nueva tarea con el número actual del contador
+      nuevaTarea.textContent = "Tarea " + contador;
+
+      // Agrega la nueva tarea al contenedor de la lista
+      lista.appendChild(nuevaTarea);
+
+      // Obtiene el <span> del contador
+      let spanContador = document.getElementById("contador");
+
+      // Actualiza el número que se muestra en el <span>
+      spanContador.textContent = contador;
+    }
+  </script>
+
+</body>
+</html>
